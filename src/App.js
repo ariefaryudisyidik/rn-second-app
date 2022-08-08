@@ -8,7 +8,7 @@ console.log('test');
 
 function App() {
   return (
-    <View>
+    <View style={{flex: 1, backgroundColor: 'black'}}>
       <StatusBar barStyle="light-content" backgroundColor={colorDark} />
       <Home />
     </View>

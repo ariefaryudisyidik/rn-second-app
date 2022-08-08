@@ -4,6 +4,7 @@ import {
   BackHandler,
   Dimensions,
   FlatList,
+  ImageBackground,
   PermissionsAndroid,
   RefreshControl,
   StyleSheet,
@@ -16,6 +17,8 @@ import {
 const colorPrimary = '#3f51b5';
 const width = Dimensions.get('screen').width;
 const height = Dimensions.get('screen').height;
+const imageUrl =
+  'https://images.unsplash.com/photo-1606229365485-93a3b8ee0385?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OHx8bWFjYm9va3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=600&q=60';
 
 const Header = props => {
   return <Text style={styles.header}>{props.title}</Text>;
@@ -110,7 +113,7 @@ function Home() {
   }, []);
 
   return (
-    <View>
+    <View style={{flex: 1, backgroundColor: 'white'}}>
       <Header title="Home" />
       {/* <ScrollView showsVerticalScrollIndicator={false}>
         <ActivityIndicator size={'small'} color={colorPrimary} />
@@ -158,6 +161,22 @@ function Home() {
           />
         </View>
       </ScrollView> */}
+      <TouchableOpacity
+        onPress={() => ToastAndroid.show('Hello World', ToastAndroid.SHORT)}
+        style={{flex: 1}}>
+        <ImageBackground
+          source={{uri: imageUrl}}
+          style={{
+            flex: 1,
+            resizeMode: 'cover',
+            alignItems: 'center',
+            justifyContent: 'center',
+          }}>
+          <Text style={{fontSize: 32, color: 'white', fontWeight: 'bold'}}>
+            Hello World
+          </Text>
+        </ImageBackground>
+      </TouchableOpacity>
 
       <FlatList2
         dataPembayaran={[
