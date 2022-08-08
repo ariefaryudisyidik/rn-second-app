@@ -1,23 +1,17 @@
 import React, {useEffect, useState} from 'react';
 import {
-  ActivityIndicator,
   Alert,
   BackHandler,
-  Button,
   Dimensions,
   FlatList,
-  Image,
   PermissionsAndroid,
-  ScrollView,
+  RefreshControl,
   StyleSheet,
-  Switch,
   Text,
-  TextInput,
   ToastAndroid,
   TouchableOpacity,
   View,
 } from 'react-native';
-import Program from '../../assets/images/program.jpg';
 
 const colorPrimary = '#3f51b5';
 const width = Dimensions.get('screen').width;
@@ -43,9 +37,20 @@ const StaticFlatList = props => {
 };
 
 const FlatList2 = props => {
+  const [refresh, setRefresh] = useState(false);
+
   return (
     <FlatList
       data={props.dataPembayaran}
+      refreshControl={
+        <RefreshControl
+          refreshing={refresh}
+          onRefresh={() => {
+            console.log('Refreshing');
+            setRefresh(false);
+          }}
+        />
+      }
       renderItem={({item}) => (
         <TouchableOpacity
           onPress={() =>
@@ -57,7 +62,7 @@ const FlatList2 = props => {
         </TouchableOpacity>
       )}
       keyExtractor={item => item.namaBarang}
-      style={{marginHorizontal: 16}}
+      style={{margin: 16}}
     />
   );
 };
@@ -106,9 +111,8 @@ function Home() {
 
   return (
     <View>
-      <ScrollView showsVerticalScrollIndicator={false}>
-        <Header title="Home" />
-
+      <Header title="Home" />
+      {/* <ScrollView showsVerticalScrollIndicator={false}>
         <ActivityIndicator size={'small'} color={colorPrimary} />
         <ActivityIndicator size={'large'} color="red" animating={false} />
         <View style={styles.container}>
@@ -143,31 +147,34 @@ function Home() {
 
         <StaticFlatList data={[1, 2, 3, 4, 5]} />
 
-        <FlatList2
-          dataPembayaran={[
-            {
-              namaBarang: 'Apel',
-              harga: '10000',
-            },
-            {
-              namaBarang: 'Jeruk',
-              harga: '15000',
-            },
-            {
-              namaBarang: 'Anggur',
-              harga: '20000',
-            },
-          ]}
-        />
-
         <View style={styles.itemCenter}>
           <Image source={Program} style={styles.image} />
         </View>
 
         <View style={{margin: 16}}>
-          <Button title="Press Me" onPress={() => console.log('Press Me')} />
+          <Button
+            title="Press Me"
+            onPress={() => Linking.openURL('https://youtube.com')}
+          />
         </View>
-      </ScrollView>
+      </ScrollView> */}
+
+      <FlatList2
+        dataPembayaran={[
+          {
+            namaBarang: 'Apel',
+            harga: '10000',
+          },
+          {
+            namaBarang: 'Jeruk',
+            harga: '15000',
+          },
+          {
+            namaBarang: 'Anggur',
+            harga: '20000',
+          },
+        ]}
+      />
     </View>
   );
 }
