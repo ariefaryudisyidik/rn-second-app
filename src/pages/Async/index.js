@@ -6,76 +6,76 @@ class index extends Component {
     text: 'text disini',
   };
 
-  // Async + Sync
-  // Undefined + Aryudi Syidik
+  /* Async + Sync
+  Undefined + Aryudi Syidik
 
-  //   callFirstName = () => {
-  //     setTimeout(() => {
-  //       return 'Arief';
-  //     }, 5000);
-  //   };
+    callFirstName = () => {
+      setTimeout(() => {
+        return 'Arief';
+      }, 5000);
+    };
 
-  //   login = () => {
-  //     const first = this.callFirstName();
-  //     const last = ' Aryudi Syidik';
-  //     const name = first + last;
-  //     console.log(name);
-  //     this.setState({text: name});
-  //   };
+    login = () => {
+      const first = this.callFirstName();
+      const last = ' Aryudi Syidik';
+      const name = first + last;
+      console.log(name);
+      this.setState({text: name});
+    }; */
 
-  // CallBack
-  // async + async
-  // Arief + Undefined
+  /* CallBack
+  async + async
+  Arief + Undefined
 
-  //   callFirstName = callBack => {
-  //     setTimeout(() => {
-  //       callBack('Arief');
-  //     }, 1000);
-  //   };
+    callFirstName = callBack => {
+      setTimeout(() => {
+        callBack('Arief');
+      }, 1000);
+    };
 
-  //   callLastName = callBack => {
-  //     setTimeout(() => {
-  //       callBack(' Aryudi Syidik');
-  //     }, 1000);
-  //   };
+    callLastName = callBack => {
+      setTimeout(() => {
+        callBack(' Aryudi Syidik');
+      }, 1000);
+    };
 
-  //   login = () => {
-  //     this.callFirstName(result => {
-  //       const first = result;
-  //       this.callLastName(result2 => {
-  //         const last = result2;
-  //         const name = first + last;
-  //         this.setState({text: name});
-  //       });
-  //     });
-  //   };
+    login = () => {
+      this.callFirstName(result => {
+        const first = result;
+        this.callLastName(result2 => {
+          const last = result2;
+          const name = first + last;
+          this.setState({text: name});
+        });
+      });
+    }; */
 
-  // Promise
-  //   callFirstName = () => {
-  //     return new Promise(resolve => {
-  //       setTimeout(() => {
-  //         resolve('Arief');
-  //       }, 1000);
-  //     });
-  //   };
+  /* Promise
+    callFirstName = () => {
+      return new Promise(resolve => {
+        setTimeout(() => {
+          resolve('Arief');
+        }, 1000);
+      });
+    };
 
-  //   callLastName = first => {
-  //     return new Promise(resolve => {
-  //       setTimeout(() => {
-  //         resolve(`${first} Aryudi Syidik`);
-  //       }, 1000);
-  //     });
-  //   };
+    callLastName = first => {
+      return new Promise(resolve => {
+        setTimeout(() => {
+          resolve(`${first} Aryudi Syidik`);
+        }, 1000);
+      });
+    };
 
-  //   login = () => {
-  //     this.callFirstName()
-  //       .then(result => {
-  //         return this.callLastName(result);
-  //       })
-  //       .then(result2 => {
-  //         this.setState({text: result2});
-  //       });
-  //   };
+    login = () => {
+      this.callFirstName()
+        .then(result => {
+          return this.callLastName(result);
+        })
+        .then(result2 => {
+          this.setState({text: result2});
+        });
+    }; */
 
   callFirstName = () => {
     return new Promise(resolve => {
